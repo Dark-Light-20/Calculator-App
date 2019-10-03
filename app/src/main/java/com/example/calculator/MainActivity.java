@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button button_div = findViewById(R.id.button_div);
         Button button_dot = findViewById(R.id.button_dot);
         Button button_eq = findViewById(R.id.button_eq);
+        Button button_clear = findViewById(R.id.button_clear);
+        Button button_about = findViewById(R.id.button_about);
 
         button0.setOnClickListener(this);
         button1.setOnClickListener(this);
@@ -47,19 +49,53 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button_div.setOnClickListener(this);
         button_dot.setOnClickListener(this);
         button_eq.setOnClickListener(this);
+        button_clear.setOnClickListener(this);
+        button_about.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View v) {
         TextView text = findViewById(R.id.text_res);
-
         String res = text.getText().toString();
 
-        Button button = findViewById(v.getId());
+        switch (v.getId()){
+            case R.id.button_eq:
+                String[] components = res.split("(?<=[-+*/])|(?=[-+*/])");
+                float number=Float.valueOf(components[0]);
+                for(int i=1;i<components.length-1;i++){
+                    switch (components[i]){
+                        case "+":
+                            number+=Float.valueOf(components[i+1]);
+                            break;
+                        case "-":
+                            number-=Float.valueOf(components[i+1]);
+                            break;
+                        case "*":
+                            number*=Float.valueOf(components[i+1]);
+                            break;
+                        case "/":
+                            number/=Float.valueOf(components[i+1]);
+                            break;
+                    }
+                    i++;
+                }
+                res=String.valueOf(number);
+                text.setText(res);
+                return;
 
-        res += button.getText().toString();
+            case R.id.button_clear:
+                text.setText("");
+                break;
 
-        text.setText(res);
+            case R.id.button_about:
+                break;
+
+            default:
+                Button button = findViewById(v.getId());
+                res += button.getText().toString();
+                text.setText(res);
+                break;
+        }
     }
 }
