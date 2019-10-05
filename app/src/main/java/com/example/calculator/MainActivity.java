@@ -3,6 +3,7 @@ package com.example.calculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,10 +11,34 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
+    double x = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            getSupportActionBar().hide();
+
+            Button button_sen = findViewById(R.id.button_sen);
+            Button button_cos = findViewById(R.id.button_cos);
+            Button button_tan = findViewById(R.id.button_tan);
+            Button button_inv = findViewById(R.id.button_inv);
+            Button button_par_left = findViewById(R.id.button_par_left);
+            Button button_par_right = findViewById(R.id.button_par_right);
+            Button button_give_x = findViewById(R.id.button_give_x);
+            Button button_clear_x = findViewById(R.id.button_clear_x);
+
+            button_sen.setOnClickListener(this);
+            button_cos.setOnClickListener(this);
+            button_tan.setOnClickListener(this);
+            button_inv.setOnClickListener(this);
+            button_par_left.setOnClickListener(this);
+            button_par_right.setOnClickListener(this);
+            button_give_x.setOnClickListener(this);
+            button_clear_x.setOnClickListener(this);
+        }
 
         Button button0 = findViewById(R.id.button0);
         Button button1 = findViewById(R.id.button1);
@@ -52,7 +77,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button_eq.setOnClickListener(this);
         button_clear.setOnClickListener(this);
         button_about.setOnClickListener(this);
-
     }
 
     @Override
@@ -92,6 +116,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_about:
                 Intent intent=new Intent(this, AboutActivity.class);
                 startActivity(intent);
+                break;
+
+            case R.id.button_sen:
+                text.setText(String.valueOf(Math.sin(x)));
+                break;
+
+            case R.id.button_cos:
+                text.setText(String.valueOf(Math.cos(x)));
+                break;
+
+            case R.id.button_tan:
+                text.setText(String.valueOf(Math.tan(x)));
+                break;
+
+            case R.id.button_inv:
+                text.setText(String.valueOf(Double.valueOf(1/x)));
+                break;
+
+            case R.id.button_par_left:
+                //res += "(";
+                break;
+
+            case R.id.button_par_right:
+                //
+                break;
+
+            case R.id.button_give_x:
+                x = Double.valueOf(res);
+                break;
+
+            case R.id.button_clear_x:
+                x = 0;
                 break;
 
             default:

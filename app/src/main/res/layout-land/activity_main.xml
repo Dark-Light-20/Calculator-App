@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/text_res"
+        android:layout_width="680dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:hint="..."
+        android:paddingTop="8dp"
+        android:textAlignment="textEnd"
+        android:textSize="25sp"
+        app:layout_constraintHorizontal_bias="0.295"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TableLayout
+        android:id="@+id/table"
+        android:layout_width="447dp"
+        android:layout_height="215dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_res">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button6"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="6"
+                android:textSize="24sp">
+            </Button>
+
+            <Button
+                android:id="@+id/button7"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="7"
+                android:textSize="24sp">
+            </Button>
+
+            <Button
+                android:id="@+id/button8"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="8"
+                android:textSize="24sp">
+            </Button>
+
+            <Button
+                android:id="@+id/button9"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="9"
+                android:textSize="24sp">
+            </Button>
+
+            <Button
+                android:id="@+id/button_sum"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="+"
+                android:textSize="24sp">
+            </Button>
+        </TableRow>
+
+        <TableRow android:layout_width="wrap_content">
+
+            <Button
+                android:id="@+id/button2"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="2"
+                android:textSize="24sp">
+            </Button>
+
+            <Button
+                android:id="@+id/button3"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="3"
+                android:textSize="24sp">
+            </Button>
+
+            <Button
+                android:id="@+id/button4"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="4"
+                android:textSize="24sp">
+            </Button>
+
+            <Button
+                android:id="@+id/button5"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="5"
+                android:textSize="24sp">
+            </Button>
+
+
+            <Button
+                android:id="@+id/button_less"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="-"
+                android:textSize="24sp">
+            </Button>
+        </TableRow>
+
+        <TableRow android:layout_width="wrap_content">
+
+            <Button
+                android:id="@+id/button_dot"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="."
+                android:textSize="24sp">
+            </Button>
+
+            <Button
+                android:id="@+id/button0"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="0"
+                android:textSize="24sp">
+            </Button>
+
+            <Button
+                android:id="@+id/button1"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="1"
+                android:textSize="24sp">
+            </Button>
+
+            <Button
+                android:id="@+id/button_mul"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="*"
+                android:textSize="24sp">
+            </Button>
+
+            <Button
+                android:id="@+id/button_div"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="/"
+                android:textSize="24sp">
+            </Button>
+        </TableRow>
+
+    </TableLayout>
+
+    <RelativeLayout
+        android:id="@+id/Relative1"
+        android:layout_width="480dp"
+        android:layout_height="67dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/table">
+
+        <Button
+            android:id="@+id/button_eq"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_marginStart="25dp"
+            android:text="="
+            android:textSize="24sp">
+        </Button>
+
+        <Button
+            android:id="@+id/button_clear"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="160dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@+id/button_eq"
+            android:text="@string/clear_btn"
+            android:textSize="20sp">
+        </Button>
+
+        <Button
+            android:id="@+id/button_about"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="160dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@+id/button_clear"
+            android:text="@string/about_btn"
+            android:textSize="20sp">
+        </Button>
+
+    </RelativeLayout>
+
+    <TableLayout
+        android:layout_width="181dp"
+        android:layout_height="280dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toEndOf="@+id/table"
+        app:layout_constraintTop_toBottomOf="@+id/text_res">
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/button_sen"
+                style="@style/Widget.AppCompat.Button"
+                android:height="70dp"
+                android:text="Sen(x)">
+            </Button>
+
+            <Button
+                android:id="@+id/button_cos"
+                style="@style/Widget.AppCompat.Button"
+                android:height="70dp"
+                android:text="Cos(x)">
+            </Button>
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/button_tan"
+                style="@style/Widget.AppCompat.Button"
+                android:height="70dp"
+                android:text="Tan(x)">
+            </Button>
+
+            <Button
+                android:id="@+id/button_inv"
+                style="@style/Widget.AppCompat.Button"
+                android:height="70dp"
+                android:text="1/(x)">
+            </Button>
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/button_par_left"
+                style="@style/Widget.AppCompat.Button"
+                android:height="70dp"
+                android:text="(">
+            </Button>
+
+            <Button
+                android:id="@+id/button_par_right"
+                style="@style/Widget.AppCompat.Button"
+                android:height="70dp"
+                android:text=")">
+            </Button>
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/button_give_x"
+                style="@style/Widget.AppCompat.Button"
+                android:height="70dp"
+                android:text="X =">
+            </Button>
+
+            <Button
+                android:id="@+id/button_clear_x"
+                style="@style/Widget.AppCompat.Button"
+                android:height="70dp"
+                android:text="Clear X">
+            </Button>
+        </TableRow>
+
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
