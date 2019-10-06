@@ -195,35 +195,30 @@
 
     </TableLayout>
 
-    <RelativeLayout
-        android:id="@+id/Relative1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <Button
+        android:id="@+id/button_clear"
+        android:layout_width="160dp"
+        android:layout_height="70dp"
+        android:textSize="20sp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
+        android:text="@string/clear_btn"
+        style="@style/Widget.AppCompat.Button"
         app:layout_constraintTop_toBottomOf="@+id/table"
-        tools:layout_editor_absoluteX="163dp">
+        app:layout_constraintStart_toStartOf="parent">
+    </Button>
 
-        <Button
-            android:id="@+id/button_clear"
-            android:layout_width="160dp"
-            android:layout_height="70dp"
-            android:textSize="20sp"
-            android:layout_marginStart="30dp"
-            android:text="@string/clear_btn"
-            style="@style/Widget.AppCompat.Button">
-        </Button>
-
-        <Button
-            android:id="@+id/button_about"
-            style="@style/Widget.AppCompat.Button"
-            android:layout_width="160dp"
-            android:layout_height="70dp"
-            android:textSize="20sp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="30dp"
-            android:text="@string/about_btn">
-        </Button>
-
-    </RelativeLayout>
+    <Button
+        android:id="@+id/button_about"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="160dp"
+        android:layout_height="70dp"
+        android:textSize="20sp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/about_btn"
+        app:layout_constraintTop_toBottomOf="@+id/table"
+        app:layout_constraintEnd_toEndOf="parent">
+    </Button>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
