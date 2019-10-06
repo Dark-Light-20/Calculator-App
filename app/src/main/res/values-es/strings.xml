@@ -3,7 +3,7 @@
     <string name="app_name">Calculadora</string>
     <string name="clear_btn">LIMPIAR</string>
     <string name="about_btn">Acerca de&#8230;</string>
-    <string name="app_tittle">App Calculadora v1.5</string>
+    <string name="app_tittle">App Calculadora v2.0</string>
     <string name="dev_txt">Desarrollada por:</string>
     <string name="aut_name">Sebastian Diaz Paz</string>
 </resources>

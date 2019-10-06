@@ -8,10 +8,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import  org.mariuszgromada.math.mxparser.*;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    double x = 0;
+    double a = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +28,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Button button_inv = findViewById(R.id.button_inv);
             Button button_par_left = findViewById(R.id.button_par_left);
             Button button_par_right = findViewById(R.id.button_par_right);
-            Button button_give_x = findViewById(R.id.button_give_x);
-            Button button_clear_x = findViewById(R.id.button_clear_x);
+            Button button_A = findViewById(R.id.button_A);
+            Button button_give_A = findViewById(R.id.button_give_A);
+            Button button_exp = findViewById(R.id.button_exp);
 
             button_sen.setOnClickListener(this);
             button_cos.setOnClickListener(this);
@@ -36,8 +38,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             button_inv.setOnClickListener(this);
             button_par_left.setOnClickListener(this);
             button_par_right.setOnClickListener(this);
-            button_give_x.setOnClickListener(this);
-            button_clear_x.setOnClickListener(this);
+            button_A.setOnClickListener(this);
+            button_give_A.setOnClickListener(this);
+            button_exp.setOnClickListener(this);
         }
 
         Button button0 = findViewById(R.id.button0);
@@ -86,27 +89,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (v.getId()){
             case R.id.button_eq:
-                String[] components = res.split("(?<=[-+*/])|(?=[-+*/])");
-                float number=Float.valueOf(components[0]);
-                for(int i=1;i<components.length-1;i++){
-                    switch (components[i]){
-                        case "+":
-                            number+=Float.valueOf(components[i+1]);
-                            break;
-                        case "-":
-                            number-=Float.valueOf(components[i+1]);
-                            break;
-                        case "*":
-                            number*=Float.valueOf(components[i+1]);
-                            break;
-                        case "/":
-                            number/=Float.valueOf(components[i+1]);
-                            break;
-                    }
-                    i++;
-                }
-                res=String.valueOf(number);
-                text.setText(res);
+                Expression expression = new Expression(res);
+                text.setText(String.valueOf(expression.calculate()));
                 return;
 
             case R.id.button_clear:
@@ -119,35 +103,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.button_sen:
-                text.setText(String.valueOf(Math.sin(x)));
+                text.setText(res+="sin(");
                 break;
 
             case R.id.button_cos:
-                text.setText(String.valueOf(Math.cos(x)));
+                text.setText(res+="cos(");
                 break;
 
             case R.id.button_tan:
-                text.setText(String.valueOf(Math.tan(x)));
+                text.setText(res+="tan(");
                 break;
 
             case R.id.button_inv:
-                text.setText(String.valueOf(Double.valueOf(1/x)));
+                text.setText(res+="(1/");
                 break;
 
             case R.id.button_par_left:
-                //res += "(";
+                text.setText(res+="(");
                 break;
 
             case R.id.button_par_right:
-                //
+                text.setText(res+=")");
                 break;
 
-            case R.id.button_give_x:
-                x = Double.valueOf(res);
+            case R.id.button_exp:
+                text.setText(res+="^(");
                 break;
 
-            case R.id.button_clear_x:
-                x = 0;
+            case R.id.button_give_A:
+                if(!res.equals("")) a = Double.valueOf(res);
+                else a = 0;
+                break;
+
+            case R.id.button_A:
+                text.setText(res+=String.valueOf(a));
                 break;
 
             default:
