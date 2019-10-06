@@ -2,8 +2,9 @@
     <string name="app_name">Calculator</string>
     <string name="clear_btn">CLEAR</string>
     <string name="about_btn">About&#8230;</string>
-    <string name="app_tittle">Calculator App v2.1</string>
+    <string name="app_tittle">Basic Calculator App</string>
     <string name="dev_txt">Developed By:</string>
     <string name="aut_name">Sebastian Diaz Paz</string>
     <string name="ic_desc">App icon</string>
+    <string name="version">v2.2</string>
 </resources>
