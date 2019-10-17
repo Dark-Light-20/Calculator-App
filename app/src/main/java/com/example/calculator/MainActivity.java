@@ -6,21 +6,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-
-import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-
 import com.google.android.material.navigation.NavigationView;
 
-import  org.mariuszgromada.math.mxparser.*;
-
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    double a = 0;
+
+    private CalculatorFragment calculatorFragment = new CalculatorFragment();
+    private AboutFragment aboutFragment = new AboutFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if(savedInstanceState == null){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new CalculatorFragment()).commit();
+                    calculatorFragment).commit();
             navigationView.setCheckedItem(R.id.calc_item);
         }
     }
@@ -61,12 +54,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (menuItem.getItemId()){
             case R.id.calc_item:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new CalculatorFragment()).commit();
+                        calculatorFragment).commit();
                 break;
 
             case R.id.about_item:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new AboutFragment()).commit();
+                        aboutFragment).commit();
                 break;
         }
 
