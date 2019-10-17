@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/text_res"
-        android:layout_width="680dp"
+        android:layout_width="625dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:hint="..."
@@ -212,15 +212,6 @@
                 android:textSize="17sp">
             </Button>
 
-            <Button
-                android:id="@+id/button_about"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="130dp"
-                android:layout_height="70dp"
-                android:text="@string/about_btn"
-                android:layout_marginStart="5dp"
-                android:textSize="17sp">
-            </Button>
         </TableRow>
     </TableLayout>
 

@@ -7,4 +7,12 @@
     <string name="aut_name">Sebastian Diaz Paz</string>
     <string name="ic_desc">App icon</string>
     <string name="version">v2.2.1</string>
+
+    <string name="navigation_drawe_open">Open navigation drawer</string>
+    <string name="navigation_drawe_close">Close navigation drawer</string>
+    <!-- <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons"
+    title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/"
+    title="Flaticon">www.flaticon.com</a></div>
+    -->
+
 </resources>
