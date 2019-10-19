@@ -6,7 +6,8 @@
     <string name="dev_txt">Developed By:</string>
     <string name="aut_name">Sebastian Diaz Paz</string>
     <string name="ic_desc">App icon</string>
-    <string name="version">v2.2.1</string>
+    <string name="version">v2.4.0</string>
+    <string name="history">History</string>
 
     <string name="navigation_drawe_open">Open navigation drawer</string>
     <string name="navigation_drawe_close">Close navigation drawer</string>

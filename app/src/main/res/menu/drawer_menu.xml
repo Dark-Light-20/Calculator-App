@@ -3,9 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <item android:id="@+id/calc_item"
-        android:icon="@drawable/ic_calculator"
-        android:title="@string/app_name">
+    <item android:title="Menu">
+        <menu>
+            <item android:id="@+id/calc_item"
+                android:icon="@drawable/ic_calculator"
+                android:title="@string/app_name">
+            </item>
+
+            <item android:id="@+id/history_item"
+                android:icon="@drawable/ic_history"
+                android:title="@string/history">
+            </item>
+        </menu>
     </item>
 
     <item android:title="Extra">

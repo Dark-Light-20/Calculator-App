@@ -1,7 +1,10 @@
 package com.example.calculator;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import org.mariuszgromada.math.mxparser.Expression;
+
+import java.util.Map;
 
 public class CalculatorFragment extends Fragment implements View.OnClickListener {
     private View view;
@@ -98,6 +103,8 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
 
         switch (v.getId()){
             case R.id.button_eq:
+                saveExpression(text);
+
                 Expression expression = new Expression(res);
                 text.setText(String.valueOf(expression.calculate()));
                 return;
@@ -149,5 +156,15 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 text.setText(res);
                 break;
         }
+    }
+
+    private void saveExpression(TextView text) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        Map<String, ?> expressions = sharedPreferences.getAll();
+        int last = expressions.size();
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("exp"+last, text.getText().toString());
+        editor.commit();
     }
 }

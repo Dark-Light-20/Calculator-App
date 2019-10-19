@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private CalculatorFragment calculatorFragment = new CalculatorFragment();
     private AboutFragment aboutFragment = new AboutFragment();
+    private HistoryFragment historyFragment = new HistoryFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.calc_item:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         calculatorFragment).commit();
+                break;
+
+            case R.id.history_item:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        historyFragment).commit();
                 break;
 
             case R.id.about_item:
