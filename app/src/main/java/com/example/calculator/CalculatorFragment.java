@@ -73,6 +73,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
         Button button_dot = view.findViewById(R.id.button_dot);
         Button button_eq = view.findViewById(R.id.button_eq);
         Button button_clear = view.findViewById(R.id.button_clear);
+        Button button_C = view.findViewById(R.id.button_C);
 
         button0.setOnClickListener(this);
         button1.setOnClickListener(this);
@@ -91,6 +92,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
         button_dot.setOnClickListener(this);
         button_eq.setOnClickListener(this);
         button_clear.setOnClickListener(this);
+        button_C.setOnClickListener(this);
 
         return view;
     }
@@ -111,6 +113,13 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
 
             case R.id.button_clear:
                 text.setText("");
+                break;
+
+            case R.id.button_C:
+                if(!text.getText().equals("")){
+                    String text2 = text.getText().toString().substring(0, text.getText().toString().length()-1);
+                    text.setText(text2);
+                }
                 break;
 
             case R.id.button_sen:

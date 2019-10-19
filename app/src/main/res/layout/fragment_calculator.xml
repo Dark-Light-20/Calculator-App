@@ -8,7 +8,6 @@
         android:id="@+id/text_res"
         android:layout_width="360dp"
         android:layout_height="65dp"
-        android:layout_marginTop="?attr/actionBarSize"
         android:textAlignment="textEnd"
         android:paddingTop="8dp"
         android:textSize="25sp"
@@ -204,6 +203,19 @@
         style="@style/Widget.AppCompat.Button"
         app:layout_constraintTop_toBottomOf="@+id/table"
         app:layout_constraintStart_toStartOf="parent">
+    </Button>
+
+    <Button
+        android:id="@+id/button_C"
+        android:layout_width="160dp"
+        android:layout_height="70dp"
+        android:textSize="20sp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/c_btn"
+        style="@style/Widget.AppCompat.Button"
+        app:layout_constraintTop_toBottomOf="@+id/table"
+        app:layout_constraintEnd_toEndOf="parent">
     </Button>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
