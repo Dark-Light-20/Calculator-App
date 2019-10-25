@@ -105,9 +105,10 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
 
         switch (v.getId()){
             case R.id.button_eq:
-                saveExpression(text);
-
                 Expression expression = new Expression(res);
+
+                saveExpression(text.getText().toString(), String.valueOf(expression.calculate()));
+
                 text.setText(String.valueOf(expression.calculate()));
                 return;
 
@@ -167,13 +168,14 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
         }
     }
 
-    private void saveExpression(TextView text) {
+    private void saveExpression(String expression, String result) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         Map<String, ?> expressions = sharedPreferences.getAll();
-        int last = expressions.size();
+        int last = expressions.size()+1;
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("exp"+last, text.getText().toString());
+        //editor.clear();
+        editor.putString("exp"+last, expression+" = "+result);
         editor.commit();
     }
 }

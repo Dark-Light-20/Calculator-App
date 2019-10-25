@@ -6,13 +6,17 @@ import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 public class HistoryFragment extends Fragment {
@@ -22,16 +26,31 @@ public class HistoryFragment extends Fragment {
         //getActivity().setTitle("History");
         View view = inflater.inflate(R.layout.fragment_history, container, false);
 
-        LinearLayout linearLayout = view.findViewById(R.id.linear_history);
+        ListView listView = view.findViewById(R.id.history_list);
+        ArrayList<String> expressions_list = new ArrayList<>();
 
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         Map<String, ?> expressions = sharedPreferences.getAll();
         for (Map.Entry<String, ?> entry : expressions.entrySet()) {
-            TextView textView = new TextView(getContext());
-            textView.setTextSize(25);
-            textView.setText(entry.getValue().toString());
-            linearLayout.addView(textView);
+            expressions_list.add(entry.getValue().toString());
         }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
+                android.R.layout.simple_list_item_1, expressions_list);
+        listView.setAdapter(adapter);
+
+        Button clear = view.findViewById(R.id.history_clear);
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.clear();
+                editor.commit();
+
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.detach(HistoryFragment.this).attach(HistoryFragment.this).commit();
+            }
+        });
 
         return view;
     }
