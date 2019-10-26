@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.MenuItem;
 import com.google.android.material.navigation.NavigationView;
 
@@ -57,16 +58,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.calc_item:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         calculatorFragment).commit();
+                getSupportActionBar().setTitle(getString(R.string.app_name));
                 break;
 
             case R.id.history_item:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         historyFragment).commit();
+                getSupportActionBar().setTitle(getString(R.string.history));
                 break;
 
             case R.id.about_item:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         aboutFragment).commit();
+                getSupportActionBar().setTitle(getString(R.string.about_btn));
                 break;
         }
 
